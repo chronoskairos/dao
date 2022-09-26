@@ -5,7 +5,7 @@ import "./VaultTest.t.sol";
 
 contract BalanceTest is VaultTest {
     function setUp() external {
-        // Step 1. Deploy the smart contracts
+        // Step 1. Deploy one smart contract: Vault (3 functions)
         deploy();
 
         // Step 2. User owned 1 ether in the vault
@@ -15,10 +15,19 @@ contract BalanceTest is VaultTest {
         deposit(address(this), 100000 wei);
     }
 
-    function invariantBalanceLowerLimit() external view {
+    function check() external override {
+        uint256 balance = address(vault).balance;
+
         // INVARAINT:
         // The vault should always have at least 1 ether.
-        // Otherwise, User cannot get the fund back.  
-        require(address(vault).balance >= 1 ether, "User fund loss");
+        // Otherwise, User cannot get the fund back.
+        require(
+            balance >= 1 ether,
+            string(abi.encodePacked(
+                "[!!!] Invariant violation: vault is stolen (",
+                Strings.toString(balance),
+                ")"
+            ))
+        );
     }
 }
