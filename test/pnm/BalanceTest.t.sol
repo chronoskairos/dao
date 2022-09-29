@@ -15,7 +15,7 @@ contract BalanceTest is VaultTest {
         deposit(address(this), 100000 wei);
     }
 
-    function check() external override {
+    function invariant() external {
         uint256 balance = address(vault).balance;
 
         // INVARAINT:
@@ -25,7 +25,7 @@ contract BalanceTest is VaultTest {
             balance >= 1 ether,
             string(abi.encodePacked(
                 "[!!!] Invariant violation: vault is stolen (",
-                Strings.toString(balance),
+                balance,
                 ")"
             ))
         );
