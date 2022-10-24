@@ -30,4 +30,8 @@ contract BalanceTest is VaultTest {
             ))
         );
     }
+
+    function invariantFailing() external {
+        revert();
+    }
 }
