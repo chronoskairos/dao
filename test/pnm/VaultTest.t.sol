@@ -2,9 +2,9 @@
 pragma solidity ^0.8.0;
 
 import "contracts/Vault.sol";
-import "@pwnednomore/contracts/Agent.sol";
+import "@pwnednomore/contracts/PTest.sol";
 
-contract VaultTest is Agent {
+contract VaultTest is PTest {
     Vault vault;
 
     address USER = address(0xbBbBBBBbbBBBbbbBbbBbbbbBBbBbbbbBbBbbBBbB);

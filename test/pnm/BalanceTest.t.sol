@@ -12,7 +12,7 @@ contract BalanceTest is VaultTest {
         deposit(USER, 1 ether);
 
         // Step 3. Attacker (we) owned 0.0000000000001 ether in the vault
-        deposit(address(this), 100000 wei);
+        deposit(getAgent(), 100000 wei);
     }
 
     function invariant() external {
