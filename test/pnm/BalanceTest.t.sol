@@ -35,7 +35,7 @@ contract BalanceTest is VaultTest {
         require(false, "testUnit failed");
     }
 
-    function testParameter(uint asd) external {
-        require(uint != 1, "testParameter failed");
+    function testParameter(uint val) external {
+        require(val != 1, "testParameter failed");
     }
 }
