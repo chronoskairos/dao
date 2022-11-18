@@ -15,21 +15,25 @@ contract BalanceTest is VaultTest {
         deposit(getAgent(), 100000 wei);
     }
 
-    function invariant0() external {
-        uint256 balance = address(vault).balance;
-
-        // INVARAINT:
-        // The vault should always have at least 1 ether.
-        // Otherwise, User cannot get the fund back.
-        require(
-            balance >= 1 ether,
-            string(abi.encodePacked(
-                "[!!!] Invariant violation: vault is stolen (",
-                balance,
-                ")"
-            ))
-        );
+    function testFailing(uint n) external {
+        assert(false);
     }
+
+    // function invariant0() external {
+    //     uint256 balance = address(vault).balance;
+
+    //     // INVARAINT:
+    //     // The vault should always have at least 1 ether.
+    //     // Otherwise, User cannot get the fund back.
+    //     require(
+    //         balance >= 1 ether,
+    //         string(abi.encodePacked(
+    //             "[!!!] Invariant violation: vault is stolen (",
+    //             balance,
+    //             ")"
+    //         ))
+    //     );
+    // }
 
     // function testParameter(uint val) external {
     //     require(val != 1, "testParameter failed");
