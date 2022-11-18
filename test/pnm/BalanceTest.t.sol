@@ -15,7 +15,7 @@ contract BalanceTest is VaultTest {
         deposit(getAgent(), 100000 wei);
     }
 
-    function testFailing(uint n) external {
+    function invariantFailing(uint n) external {
         assert(false);
     }
 
